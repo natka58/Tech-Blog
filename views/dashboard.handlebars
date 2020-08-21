@@ -1,4 +1,4 @@
-<div class="mb-5 pt-3">
+{{!-- <div class="mb-5 pt-3">
     <a href="/dashboard/create/"><button id="create-post" class="button is-primary is-pulled-right">create post</button></a>
 
     <h2 class="title pb-4">dashboard: your posts</h2><hr>
@@ -15,4 +15,20 @@
 {{else}}
     <h6 class="pb-4 has-text-centered is-italic">you do not currently have any posts</h6>
 
+{{/if}} --}}
+
+
+{{#if posts.length}}
+  <h2 class="dashboard-text text-center">Your Posts</h2>
+  <div class="row">
+    {{#each posts as |post|}}
+      <div class="col-11 mx-auto my-2">
+        {{> post-info-dashboard post}}
+      </div>
+    {{/each}}
+  </div> 
 {{/if}}
+
+{{#unless posts.length}}
+  <h3 class="dashboard-text text-center">You have no posts! Why not create one?</h3>
+{{/unless}}

@@ -1,16 +1,14 @@
-const router = require('express').Router();
+  const router = require('express').Router();
 const { Post, User, Comment } = require('../../models');
-const sequelize = require('../../config/connection');
+const sequelize = require('../../config/connections');
 const withAuth = require('../../utils/auth');
 
-// get all posts
 router.get('/', (req, res) => {
   Post.findAll({
-    // query config
     attributes: [
-      'id', 
-      'post_content', 
-      'title', 
+      'id',
+      'post_content',
+      'title',
       'created_at'
     ],
     order: [['created_at', 'DESC']],
@@ -36,7 +34,7 @@ router.get('/', (req, res) => {
     });
 });
 
-// get one post
+// one post
 router.get('/:id', (req, res) => {
   Post.findOne({
     where: {
@@ -65,7 +63,7 @@ router.get('/:id', (req, res) => {
   })
     .then(dbPostData => {
       if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id' });
+        res.status(404).json({ message: 'No post found' });
         return;
       }
       res.json(dbPostData);
@@ -77,11 +75,11 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
-  // expects {title: 'STRING', post_content: 'STRING', user_id: INT}
+ 
   Post.create({
     title: req.body.title,
     post_content: req.body.post_content,
-    // grab user id from session
+    
     user_id: req.session.user_id
   })
     .then(dbPostData => res.json(dbPostData))
@@ -104,7 +102,7 @@ router.put('/:id', withAuth, (req, res) => {
   )
     .then(dbPostData => {
       if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id! '});
+        res.status(404).json({ message: 'No post found'});
         return;
       }
       res.json(dbPostData);
@@ -123,7 +121,7 @@ router.delete('/:id', withAuth, (req, res) => {
   })
     .then(dbPostData => {
       if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id!' });
+        res.status(404).json({ message: 'No post found' });
         return;
       }
       res.json(dbPostData);

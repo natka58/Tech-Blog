@@ -29,4 +29,5 @@ async function singupFormHandler(event) {
     }
   };
   
+  
   document.querySelector('.signup-form').addEventListener('submit', singupFormHandler);

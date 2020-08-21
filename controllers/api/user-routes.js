@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// GET /api/users
+// Get api users 
 router.get('/', (req, res) => {
   User.findAll({
     attributes: {
@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
     });
 });
 
-// GET /api/users/1
+// GET api user 1 
 router.get('/:id', (req, res) => {
   User.findOne({
     attributes: {
@@ -42,7 +42,7 @@ router.get('/:id', (req, res) => {
   })
     .then(dbUserData => {
       if(!dbUserData) {
-        res.status(404).json({ message: 'No user found with this id'});
+        res.status(404).json({ message: 'No user found'});
         return;
       }
       res.json(dbUserData);
@@ -54,7 +54,6 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // expects {username: 'test', email: 'email', password: 'pw'}
   User.create({
     username: req.body.username,
     email: req.body.email,
@@ -71,7 +70,7 @@ router.post('/', (req, res) => {
    });
 });
 
-// POST router to login
+// POST login
 router.post('/login', (req, res) => {
   User.findOne({
     where: {
@@ -111,9 +110,8 @@ router.post('/logout', withAuth, (req, res) => {
   }
 })
 
-// PUT /api/users/1
+// put api user
 router.put('/:id', withAuth, (req, res) => {
-  // if req.body has exact key/value pairs to match the model, you can just use `req.body` instead
   User.update(req.body, {
     individualHooks: true,
     where: {
@@ -122,7 +120,7 @@ router.put('/:id', withAuth, (req, res) => {
   })
     .then(dbUserData => {
       if (!dbUserData[0]) {
-        res.status(404).json({ message: 'No user found with this id' });
+        res.status(404).json({ message: 'No user found' });
         return;
       }
       res.json(dbUserData);
@@ -133,7 +131,7 @@ router.put('/:id', withAuth, (req, res) => {
     });
 });
 
-// DELETE /api/users/1
+// DELETE api user
 router.delete('/:id', withAuth, (req, res) => {
   User.destroy({
     where: {
@@ -142,7 +140,7 @@ router.delete('/:id', withAuth, (req, res) => {
   })
     .then(dbUserData => {
       if (!dbUserData) {
-        res.status(404).json({ message: 'No user found with this id '});
+        res.status(404).json({ message: 'No user found'});
         return;
       }
       res.json(dbUserData);
