@@ -1,0 +1,72 @@
+{{!--   
+<div class="card mb-6">
+    <header class="card-header card-header-title has-background-grey-lighter">
+
+        <div class="column">
+            <p class=" has-text-primary-light"></p>
+            <a href="/post/{{id}}"  class="has-text-black is-capitalized is-pulled-left">{{title}} </a></p>
+        </div>
+
+        <div class="column">
+            <span class=""> </span>
+        </div>
+
+    </header>
+
+    <div class="card-content">
+        <div class="content has-text-justified">
+            {{post_content}}
+        </div>
+        <div class="is-pulled-right">
+            <b>{{user.username}}</b> |
+               | {{format_date created_at}} | <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+        </div>
+
+    </div> --}}
+    
+{{!-- <div class="card border border-dark rounded">
+  <div class="card-header text-white bg-dark">
+    <h3 class="card-title">{{title}}</h3>
+    <p class="subtext">Posted by {{user.username}} on {{format_date created_at}}</p>
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{post_content}}</p>
+    <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+  </div>
+</div>
+ <article class="post">
+  <div class="title">
+    <a href="{{post_url}}" target="_blank">{{title}}</a>
+    <span>({{post_url}})</span>
+  </div>
+  <div class="meta">
+    {{vote_count}} post by {{user.username}} on {{created_at}}
+    |
+    <a href="/post/{{id}}">{{comments.length}} comment(s)</a>
+  </div>
+</article> --}}
+  
+<div class="card mb-6">
+    <header class="card-header card-header-title has-background-grey-lighter">
+
+        <div class="column">
+            <p class=" has-text-primary-light"></p>
+            <a href="/post/{{id}}"  class="has-text-black is-capitalized is-pulled-left">{{title}} </a></p>
+        </div>
+
+        <div class="column">
+            <span class=""> </span>
+        </div>
+
+    </header>
+
+    <div class="card-content">
+        <div class="content has-text-justified">
+            {{post_content}}
+        </div>
+        <div class="is-pulled-right">
+            <b>{{user.username}}</b> |
+               | {{format_date created_at}} | <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+        </div>
+
+    </div>

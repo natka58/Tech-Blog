@@ -41,7 +41,7 @@ router.get('/', withAuth, (req, res) => {
     });
 });
 
-router.get('/create-post', (req, res) => {
+router.get('/createpost', (req, res) => {
   if (!req.session.loggedIn) {
     res.redirect('/');
     return;
