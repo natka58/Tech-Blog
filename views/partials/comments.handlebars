@@ -1,16 +1,16 @@
-{{!-- <div class="comments">
+<div class="comments">
     {{#each this}}
         <section class="comment">
             <div class="meta">
-                {{user.username}} on {{format_date created_at}}
+                {{User.username}} on {{format_date created_at}}
             </div>
             <div class="text">
                 {{comment_text}}
             </div>
         </section>
     {{/each}}
-</div> --}}
-{{#each this}}
+</div>
+{{!-- {{#each this}}
   <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
     <div class="d-flex w-100 justify-content-between">
       <small class="text-muted">{{format_date created_at}}</small>
@@ -18,4 +18,4 @@
     <p class="mb-1"> {{comment_text}}</p>
     <small class="text-muted">By {{user.username}}</small>
   </a>
-{{/each}}
+{{/each}} --}}

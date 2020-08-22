@@ -1,25 +1,7 @@
-async function createpostFormHandler(event) {
+async function newFormHandler(event) {
   event.preventDefault();
 
-  // const username = document.querySelector('#username-signup').value.trim();
-  // const email = document.querySelector('#email-signup').value.trim();
-  // const password = document.querySelector('#password-signup').value.trim();
-  // console.log(`Signing up with username: ${username} and email: ${email}`);
-
-  // if (username && email && password) {
-  //   const response = await fetch('/api/users', {
-  //     method: 'post',
-  //     body: JSON.stringify({
-  //       username,
-  //       email,
-  //       password
-  //     }),
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     }
-  //   });
-
-  const title = document.querySelector('input[name="post-title"]').value;
+const title = document.querySelector('input[name="post-title"]').value;
     const post_content = document.querySelector('input[name="post-content"]').value;
 
   // const post_content = window.location.toString().split('/')[
@@ -56,4 +38,4 @@ if (response.ok) {
 
 
 
-document.querySelector('.new-post-form').addEventListener('submit', createpostFormHandler);
+document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);

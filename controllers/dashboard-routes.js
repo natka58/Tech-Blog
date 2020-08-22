@@ -11,9 +11,9 @@ router.get('/', withAuth, (req, res) => {
     },
     attributes: [
       'id',
-      'post_content',
       'title',
-      'created_at'
+      'created_at',
+      'post_content'
     ],
     include: [
       {
@@ -41,12 +41,49 @@ router.get('/', withAuth, (req, res) => {
     });
 });
 
-router.get('/createpost', (req, res) => {
-  if (!req.session.loggedIn) {
-    res.redirect('/');
-    return;
+router.get('/createpost', withAuth, (req, res) => {
+  Post.findAll({
+    where: {
+      user_id: req.session.user_id
+    },
+    attributes: [
+      'id',
+      'title',
+      'created_at',
+      'post_content'
+  ],
+  include: [
+    {
+  model: Comment,
+  attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+  include: {
+    model: User,
+    attributes: ['username']
   }
-  res.render('create-post', { loggedIn: req.session.loggedIn} );
+},
+{
+  model: User,
+  attributes: ['username']
+}
+]
+  })
+  .then(dbPostData => {
+    // serialize data before passing to template
+    const posts = dbPostData.map(post => post.get({ plain: true }));
+    res.render('create-post', { posts, loggedIn: true });
+})
+.catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+});
+
+
+  // }
+  // if (!req.session.loggedIn) {
+  //   res.redirect('/');
+  //   return;
+  // }
+  // res.render('create-post', { loggedIn: req.session.loggedIn} );
 });
 
 router.get('/edit/:id', withAuth, (req, res) => {
@@ -56,9 +93,9 @@ router.get('/edit/:id', withAuth, (req, res) => {
     },
     attributes: [
       'id',
-      'post_content',
       'title',
-      'created_at'
+      'created_at',
+      'post_content'
     ],
     include: [
       {

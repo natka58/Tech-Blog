@@ -18,9 +18,8 @@ console.log(password);
             headers: { 'Content-Type': 'application/json' }
         });
 
-        // check the response status
         if (response.ok) {
-            console.log('success');
+            console.log('added');
             document.location.replace('/dashboard');
         } else {
             alert(response.statusText);

@@ -8,9 +8,9 @@ router.get('/', (req, res) => {
   Post.findAll({
     attributes: [
       'id',
-      'post_content',
       'title',
-      'created_at'
+      'created_at',
+      'post_content'
     ],
     include: [
       {
@@ -57,7 +57,10 @@ router.get('/createpost', (req, res) => {
 });
 
 router.get('/signup', (req, res) => {
- 
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+}
   res.render('signup');
 });
 router.get('/post/:id', (req, res) => {
@@ -67,9 +70,9 @@ router.get('/post/:id', (req, res) => {
     },
     attributes: [
       'id',
-      'post_content',
       'title',
-      'created_at'
+      'created_at',
+      'post_content'
     ],
     include: [
       {
@@ -92,10 +95,8 @@ router.get('/post/:id', (req, res) => {
       return;
     }
 
-    // serialize the data
     const post = dbPostData.get({ plain: true });
 
-    // pass data to template
     res.render('single-post', {
       post,
       loggedIn: req.session.loggedIn

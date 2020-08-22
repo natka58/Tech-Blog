@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// Get api users 
+// Get api/users 
 router.get('/', (req, res) => {
   User.findAll({
     attributes: {
@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
     });
 });
 
-// GET api user 1 
+// GET api/users/1 
 router.get('/:id', (req, res) => {
   User.findOne({
     attributes: {
@@ -52,7 +52,7 @@ router.get('/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
-
+// POST api/users
 router.post('/', (req, res) => {
   User.create({
     username: req.body.username,
@@ -90,16 +90,15 @@ router.post('/login', (req, res) => {
     }
 
     req.session.save(() => {
-      // declare session variables
       req.session.user_id = dbUserData.id;
       req.session.username = dbUserData.username;
       req.session.loggedIn = true;
 
-      res.json({ user: dbUserData, message: 'You are now logged in!' });
+      res.json({ user: dbUserData, message: 'You are logged in!' });
     });
   });
 });
-
+// POST logout
 router.post('/logout', withAuth, (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
@@ -110,7 +109,7 @@ router.post('/logout', withAuth, (req, res) => {
   }
 })
 
-// put api user
+// PUT api/users/1
 router.put('/:id', withAuth, (req, res) => {
   User.update(req.body, {
     individualHooks: true,
@@ -131,7 +130,7 @@ router.put('/:id', withAuth, (req, res) => {
     });
 });
 
-// DELETE api user
+// DELETE api/users/1
 router.delete('/:id', withAuth, (req, res) => {
   User.destroy({
     where: {

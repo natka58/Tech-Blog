@@ -1,9 +1,11 @@
 // Handlebars.js app set up
 const exphbs = require('express-handlebars');
-const hbs = exphbs.create({});
+// const hbs = exphbs.create({});
 const path = require('path');
 const express = require('express');
 const routes = require('./controllers');
+const helpers = require('./utils/helper');
+const hbs = exphbs.create({ helpers });
 const sequelize = require('./config/connections');
 
 
@@ -38,10 +40,10 @@ app.use(express.urlencoded({ extended: true }));
 
 
 // turn on routes
-// app.use(routes);
-app.use(require("./controllers/"));
+app.use(routes);
+// app.use(require("./controllers/"));
 
-// turn on connection to db and server
+// connection to db
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
