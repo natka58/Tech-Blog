@@ -4,13 +4,9 @@ const Comment = require('./Comment');
 const { exit } = require('process');
 
 
-User.hasMany(Post, {
-  foreignKey: 'user_id'
-});
+User.hasMany(Post);
 
-Post.belongsTo(User, {
-  foreignKey: 'user_id'
-});
+Post.belongsTo(User);
 
 Comment.belongsTo(User, {
   foreignKey: 'user_id',

@@ -4,42 +4,42 @@ const commentData = [
     {
         user_id: 1,
         post_id: 5,
-        comment_text: "Great Job!"
+        comment_text: "sample comment"
     },
     {
         user_id: 4,
         post_id: 4,
-        comment_text: "Awesome Work!"
+        comment_text: "sample comment"
     },
     {
         user_id: 1,
         post_id: 4,
-        comment_text: "Amazing! Thank you"
+        comment_text: "sample comment"
     },
     {
         user_id: 3,
         post_id: 5,
-        comment_text: "Great news"
+        comment_text: "sample comment"
     },
     {
         user_id: 3,
         post_id: 2,
-        comment_text: "Fantastic"
+        comment_text: "sample comment"
     },
     {
         user_id: 3,
         post_id: 4,
-        comment_text: "Wonderful"
+        comment_text: "sample comment"
     },
     {
         user_id: 5,
         post_id: 3,
-        comment_text: "Love it"
+        comment_text: "sample comment"
     },
     {
         user_id: 2,
         post_id: 1,
-        comment_text: "Best ever"
+        comment_text: "sample comment"
     }
 ];
 

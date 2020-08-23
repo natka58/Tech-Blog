@@ -22,15 +22,12 @@ Post.init(
     },
     post_content: {
       type: DataTypes.TEXT,
-      allowNull: false,
-      validate: {
-        len: [2]
-      }
-    },
+      allowNull: false
+      },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
+        model: 'User',
         key: 'id'
       }
     }
@@ -39,7 +36,7 @@ Post.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'post'
+    modelName: 'Post'
   // sequelize
 }
 );
