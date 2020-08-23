@@ -25,7 +25,7 @@
   ## Usage
   Example and instrution of use: Make sure to create a .env file with your Mysql log in data
 
-  ## Heroku URL
+  ## Heroku 
   ![](#) 
 
 [Heroku URL](https://vast-tor-45679.herokuapp.com/) 
