@@ -17,8 +17,8 @@
         <nav class="navbar mt-2">
          {{#if loggedIn}}
                 <div class="navbar-item text-info is-hoverable"><a href="/">Home</a>
-                <a href="/dashboard" class="navbar-item text-info is-hoverable">Dashboard</a>
-                <a href="/dashboard/createpost" class="navbar-item text-info is-hoverable">Create post</a>
+                <div class="navbar-item text-info is-hoverable"><a href="/dashboard">Dashboard</a>
+                <div class="navbar-item text-info is-hoverable"><a href="/dashboard/createpost">Create post</a>
                 {{!-- <div class="li-inline nav-item"><a href="/login">Login</a></div> --}}
                 <div class="li-inline nav-item"><button id="logout" class="btn-no-style">Logout</button>
             {{else}}
