@@ -10,7 +10,7 @@
     
   ## Table of Contents
   * [Installation](#installation)
-  * [Demo](#Demo)
+  * [Heroku](#Heroku)
   * [Usage](#usage)
   * [Credits](#credits)
   * [License](#license)
@@ -25,10 +25,10 @@
   ## Usage
   Example and instrution of use: Make sure to create a .env file with your Mysql log in data
 
-  ## Demo
+  ## Heroku URL
   ![](#) 
 
-[Google demo URL](#) 
+[Heroku URL](https://vast-tor-45679.herokuapp.com/) 
   
   ## Credits
    Program collaborators and third party assets: none
