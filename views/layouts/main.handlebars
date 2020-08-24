@@ -22,34 +22,16 @@
                 {{!-- <div class="li-inline nav-item"><a href="/login">Login</a></div> --}}
                 <div class="li-inline nav-item"><button id="logout" class="btn-no-style">Logout</button>
             {{else}}
-                <a href="/" class="navbar-item is-hoverable pt-1">Home</a>
-                <a href="/login" class="button is-info">Login</a>
+                <a href="/" class="navbar-item text-info is-hoverable">Home</a>
+                <a href="/login" class="navbar-item text-info is-hoverable">Login</a>
             {{/if}}
         </nav>
     </header>
-    {{!-- <ul>
-      <li class="li-inline nav-item"><a href="/">Home</a></li>
-      <li class="li-inline nav-item"><a href="/dashboard">Dashboard</a></li>
-      <li class="li-inline nav-item"><a href="/login">Login</a></li>
-      <li class="li-inline nav-item"><button id="logout" class="btn-no-style">logout</button></li>
-    </ul>
-  </nav> --}}
+  
     <main class="col-auto">
       {{{ body }}}
     </main>
-    {{!-- <footer class="footer rows pb-2">
-        <div class="row-is-full content has-text-centered">
-            <p>
-              <a href="/">Home</a>{{#if loggedIn}} |
-              <a href="/dashboard/">Dashboard</a> |
-              <a href="/dashboard/createpost/">Create post</a>
-              {{else}}
-                | <a href="/login/">Login</a>
-            {{/if}} 
-            </p>
-            </div>
-            </footer>
-            </div> --}}
+    
  {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
   {{/if}}
