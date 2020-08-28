@@ -5,7 +5,7 @@ const { read } = require('fs');
 
 router.get('/', (req, res) => {
   Comment.findAll()
-  .then(dbUserdata => res.json(dbUserData))
+  .then(dbCommentData => res.json(dbCommentData))
   .catch(err => {
     console.log(err);
     res.status(500)
